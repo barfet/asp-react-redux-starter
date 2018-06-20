@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspReactRedux
+namespace JustNews
 {
     public class Startup
     {
@@ -27,6 +27,8 @@ namespace AspReactRedux
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
