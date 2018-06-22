@@ -9,6 +9,7 @@ namespace JustNews.Models
     {
         public string country { get; set; }
         public TopHeadlinesCategory category { get; set; }
+        public string q { get; set; }
     }
 
     public class TopHeadlinesResponse
