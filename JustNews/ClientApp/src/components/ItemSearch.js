@@ -37,7 +37,7 @@ class ItemSearch extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Col md={6} mdPull={3}>
+                <Col md={6}>
                     <ControlLabel>News Search</ControlLabel>
                     <Row>
                         <Col md={10}>
@@ -55,7 +55,6 @@ class ItemSearch extends React.Component {
                                 onClick={this.handleClick}> Search
                             </Button>
                         </Col>
-                        
                     </Row>
                 </Col>
             </Wrapper>

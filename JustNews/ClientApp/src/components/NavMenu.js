@@ -4,6 +4,37 @@ import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
 
+const feeds = [
+  {
+    name: "general",
+    glyph: "globe"
+  },
+  {
+    name: "health",
+    glyph: "heart"
+  },
+  {
+    name: "science",
+    glyph: "education"
+  },
+  {
+    name: "sports",
+    glyph: "king"
+  },
+  {
+    name: "technology",
+    glyph: "qrcode"
+  },
+  {
+    name: "business",
+    glyph: "briefcase"
+  },
+  {
+    name: "entertainment",
+    glyph: "film"
+  }
+]
+
 export default props => (
   <Navbar inverse fixedTop fluid collapseOnSelect>
     <Navbar.Header>
@@ -16,44 +47,18 @@ export default props => (
       <Nav>
         <LinkContainer to={'/'} exact >
           <NavItem>
-            <Glyphicon glyph='home' /> All
+            <Glyphicon glyph='home' /> ALL
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/general'} exact >
-          <NavItem>
-            <Glyphicon glyph='globe' /> General
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/health'} exact>
-          <NavItem>
-            <Glyphicon glyph='heart' /> Health
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/science'} exact>
-          <NavItem>
-            <Glyphicon glyph='education' /> Science
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/sports'} exact>
-          <NavItem>
-            <Glyphicon glyph='king' /> Sports
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/technology'} exact>
-          <NavItem>
-            <Glyphicon glyph='qrcode' /> Technology
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/business'} exact>
-          <NavItem>
-            <Glyphicon glyph='briefcase' /> Business
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/entertainment'} exact>
-          <NavItem>
-            <Glyphicon glyph='film' /> Entertainment
-          </NavItem>
-        </LinkContainer>
+        {
+          feeds.map(feed =>
+            <LinkContainer to={`/${feed.name}`} exact >
+              <NavItem>
+                <Glyphicon glyph={feed.glyph} /> {feed.name.toUpperCase()}
+              </NavItem>
+            </LinkContainer>
+          )
+        }
       </Nav>
     </Navbar.Collapse>
   </Navbar>
