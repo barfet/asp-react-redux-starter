@@ -7,8 +7,13 @@ import FetchData from './components/FetchData';
 
 export default () => (
   <Layout>
+    <Route exact path='/general' component={Home} />
+    <Route exact path='/health' component={Home} />
+    <Route exact path='/science' component={Home} />
+    <Route exact path='/sports' component={Home} />
+    <Route exact path='/technology' component={Home} />
+    <Route exact path='/business' component={Home} />
+    <Route exact path='/entertainment' component={Home} />
     <Route exact path='/' component={Home} />
-    <Route path='/counter' component={Counter} />
-    <Route path='/fetchdata/:startDateIndex?' component={FetchData} />
   </Layout>
 );

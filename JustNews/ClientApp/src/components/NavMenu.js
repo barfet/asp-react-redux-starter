@@ -14,37 +14,42 @@ export default props => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <LinkContainer to={'/general'} exact>
+        <LinkContainer to={'/'} exact >
+          <NavItem>
+            <Glyphicon glyph='home' /> All
+          </NavItem>
+        </LinkContainer>
+        <LinkContainer to={'/general'} exact >
           <NavItem>
             <Glyphicon glyph='globe' /> General
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/general'} exact>
+        <LinkContainer to={'/health'} exact>
           <NavItem>
             <Glyphicon glyph='heart' /> Health
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/general'} exact>
+        <LinkContainer to={'/science'} exact>
           <NavItem>
             <Glyphicon glyph='education' /> Science
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/general'} exact>
+        <LinkContainer to={'/sports'} exact>
           <NavItem>
             <Glyphicon glyph='king' /> Sports
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/'} exact>
+        <LinkContainer to={'/technology'} exact>
           <NavItem>
             <Glyphicon glyph='qrcode' /> Technology
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/counter'}>
+        <LinkContainer to={'/business'} exact>
           <NavItem>
             <Glyphicon glyph='briefcase' /> Business
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/fetchdata'}>
+        <LinkContainer to={'/entertainment'} exact>
           <NavItem>
             <Glyphicon glyph='film' /> Entertainment
           </NavItem>

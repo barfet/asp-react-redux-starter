@@ -11,23 +11,18 @@ import './Home.css';
 class Home extends Component {
     componentWillMount() {
         const newsCategory = this.props.match.url.split('/')[1]
-        this.props.requestTopHeadlines(newsCategory ? newsCategory : 'general');
+        this.props.requestTopHeadlines(newsCategory);
     }
     
-    //componentWillReceiveProps(nextProps) {
-    //    const newsCategory = nextProps.match.url.split('/')[1]
-    //    this.props.requestTopHeadlines(newsCategory ? newsCategory : 'general');
-    //}
-
     render() {
         return (
             <Grid className="mainbar fluid">
                 <Row className="profile-wrap">
                     {
-                        this.props.articles.map(topHeadline =>
-                            <Col md={6}>
-                                <BlockWrapper title={topHeadline.title}>
-                                    <NewsItem {...topHeadline} />
+                        this.props.articles.map(article =>
+                            <Col md={6} key={article.url}>
+                                <BlockWrapper title={article.title}>
+                                    <NewsItem {...article} />
                                 </BlockWrapper>
                             </Col>
                         )

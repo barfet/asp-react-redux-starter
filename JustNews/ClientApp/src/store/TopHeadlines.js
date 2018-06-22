@@ -7,7 +7,7 @@ export const actionCreators = {
         try {
             dispatch({ type: requestTopHeadlinesType, newsCategory });
 
-            const url = `api/GoogleNews/TopHeadlines?category=${newsCategory}`;
+            const url = `api/GoogleNews/TopHeadlines?country=us&category=${newsCategory}`;
             
             const response = await fetch(url);
             const articles = await response.json();

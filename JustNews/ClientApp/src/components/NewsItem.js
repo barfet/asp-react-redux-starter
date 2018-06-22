@@ -7,9 +7,9 @@ const NewsItem = (props) => (
         <Wrapper>
             <ItemImage srcImg={props.urlToImage} />
         </Wrapper>
-        <Wrapper className="">
-            <p>{props.description}</p>
-        </Wrapper>
+        <div className="item-description">
+            {props.description}
+        </div>
     </Wrapper>
 );
 
