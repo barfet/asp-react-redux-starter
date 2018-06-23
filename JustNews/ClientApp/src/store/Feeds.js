@@ -42,12 +42,14 @@ export const actionCreators = {
     addNewFeed: name => async (dispatch, getState) => {    
         try {
             const { feeds } = getState();
-            const items = feeds.items;
-            items.forEach((item, index) => {
-                if(item.name === name) {
-                    item.selected = !item.selected
+            const items = feeds.items.map(item => {
+                if (item.name === name) {
+                    item.selected = !item.selected;
+                    return item;
+                } else {
+                    return item;
                 }
-            });
+            })
 
             dispatch({ type: addNewFeed, items });
         }
