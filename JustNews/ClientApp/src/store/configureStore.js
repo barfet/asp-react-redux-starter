@@ -2,10 +2,12 @@
 import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as TopHeadlines from './TopHeadlines';
+import * as Feeds from './Feeds';
 
 export default function configureStore(history, initialState) {
   const reducers = {
-    topHeadlines: TopHeadlines.reducer
+    topHeadlines: TopHeadlines.reducer,
+    feeds: Feeds.reducer
   };
 
   const middleware = [

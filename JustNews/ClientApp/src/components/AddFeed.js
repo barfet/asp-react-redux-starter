@@ -2,46 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Col, Modal, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
-import { actionCreators } from '../store/TopHeadlines';
+import { actionCreators } from '../store/Feeds';
 import Wrapper from './Wrapper';
-
-const feeds = [
-    {
-      name: "general",
-      glyph: "globe",
-      selected: false
-    },
-    {
-      name: "health",
-      glyph: "heart",
-      selected: false
-    },
-    {
-      name: "science",
-      glyph: "education",
-      selected: false
-    },
-    {
-      name: "sports",
-      glyph: "king",
-      selected: false
-    },
-    {
-      name: "technology",
-      glyph: "qrcode",
-      selected: false
-    },
-    {
-      name: "business",
-      glyph: "briefcase",
-      selected: false
-    },
-    {
-      name: "entertainment",
-      glyph: "film",
-      selected: false
-    }
-  ]
 
 class AddFeed extends React.Component {
     constructor(props, context) {
@@ -65,17 +27,12 @@ class AddFeed extends React.Component {
     }
 
     handleClick(e) {
-        e.preventDefault();
         const name = e.target.name;
-
-        feeds.forEach((feed, index) => {
-            if(feed.name === name) {
-                feed.selected = !feed.selected
-            }
-        });
+        this.props.addNewFeed(name);
     }
   
     render() {
+        const { items } = this.props;
         return (
             <Wrapper>
                 <Col md={6} mdPush={5}>
@@ -90,12 +47,13 @@ class AddFeed extends React.Component {
                     <Modal.Body>
                         <ListGroup>
                             {
-                                feeds.map(feed =>
+                                items.map(item =>
                                     <ListGroupItem 
                                         onClick={this.handleClick}
-                                        name={feed.name}
-                                        active={feed.selected}
-                                    >{feed.name.toUpperCase()}</ListGroupItem>
+                                        name={item.name}
+                                        active={item.selected}
+                                        key={item.name}
+                                    >{item.name.toUpperCase()}</ListGroupItem>
                                 )
                             }
                         </ListGroup>
@@ -110,6 +68,6 @@ class AddFeed extends React.Component {
   }
   
 export default connect(
-    state => state.topHeadlines,
+    state => state.feeds,
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(AddFeed);

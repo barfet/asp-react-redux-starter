@@ -1,41 +1,11 @@
 ﻿import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
 
-const feeds = [
-  {
-    name: "general",
-    glyph: "globe"
-  },
-  {
-    name: "health",
-    glyph: "heart"
-  },
-  {
-    name: "science",
-    glyph: "education"
-  },
-  {
-    name: "sports",
-    glyph: "king"
-  },
-  {
-    name: "technology",
-    glyph: "qrcode"
-  },
-  {
-    name: "business",
-    glyph: "briefcase"
-  },
-  {
-    name: "entertainment",
-    glyph: "film"
-  }
-]
-
-export default props => (
+const NavMenu = (props) => (
   <Navbar inverse fixedTop fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
@@ -51,10 +21,11 @@ export default props => (
           </NavItem>
         </LinkContainer>
         {
-          feeds.map(feed =>
-            <LinkContainer to={`/${feed.name}`} exact >
+          props.items.map(item =>
+            item.selected &&
+            <LinkContainer to={`/${item.name}`} exact >
               <NavItem>
-                <Glyphicon glyph={feed.glyph} /> {feed.name.toUpperCase()}
+                <Glyphicon glyph={item.glyph} /> {item.name.toUpperCase()}
               </NavItem>
             </LinkContainer>
           )
@@ -63,3 +34,8 @@ export default props => (
     </Navbar.Collapse>
   </Navbar>
 );
+
+export default connect(
+  state => state.feeds,
+  null
+)(NavMenu);

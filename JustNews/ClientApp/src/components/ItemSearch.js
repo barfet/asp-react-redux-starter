@@ -28,7 +28,7 @@ class ItemSearch extends React.Component {
     }
 
     handleKeyPress(target) {
-        if(target.charCode == 13) {
+        if(target.charCode === 13) {
             const { requestTopHeadlines, newsCategory } = this.props;
             requestTopHeadlines(newsCategory, this.state.searchText);
         }
