@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Col, Grid, Row } from 'react-bootstrap';
 import NavMenu from './NavMenu';
 
-export default props => (
+const Layout = props => (
   <Grid fluid>
     <Row>
       <Col sm={2}>
-        <NavMenu />
+        <NavMenu items={props.items} />
       </Col>
       <Col sm={10}>
         {props.children}
@@ -14,3 +15,8 @@ export default props => (
     </Row>
   </Grid>
 );
+
+export default connect(
+  state => state.feeds,
+  null
+)(Layout);

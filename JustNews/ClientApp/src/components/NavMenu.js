@@ -1,11 +1,10 @@
 ﻿import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
 
-const NavMenu = (props) => (
+export default props => (
   <Navbar inverse fixedTop fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
@@ -23,7 +22,7 @@ const NavMenu = (props) => (
         {
           props.items.map(item =>
             item.selected &&
-            <LinkContainer to={`/${item.name}`} exact >
+            <LinkContainer to={`/${item.name}`} key={item.name} exact >
               <NavItem>
                 <Glyphicon glyph={item.glyph} /> {item.name.toUpperCase()}
               </NavItem>
@@ -34,8 +33,3 @@ const NavMenu = (props) => (
     </Navbar.Collapse>
   </Navbar>
 );
-
-export default connect(
-  state => state.feeds,
-  null
-)(NavMenu);

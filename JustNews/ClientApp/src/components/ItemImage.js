@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as companyLogo from './company-logo.png';
 
 const ItemImage = (props) => {
     const styles = {
@@ -8,12 +7,12 @@ const ItemImage = (props) => {
             display: 'block'
     },
         block: {
-            maxWidth: '600px'
+            maxWidth: '100%'
         }
     };
     return (
         <div style={styles.block} className={props.itemClass}>
-            <img style={styles.img} src={props.srcImg || companyLogo} alt="Logo" />
+            <img style={styles.img} src={props.srcImg} alt="Logo" />
         </div>
     );
 };
