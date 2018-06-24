@@ -1,1 +1,1 @@
-# asp-react-redux-starter
+# just-news
